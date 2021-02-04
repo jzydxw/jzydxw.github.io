@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo-next主题优化</title>
+    <url>/2021/02/04/hexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<center>此贴用来记录自己对hexo-next主题进行相关优化的功能点需求
+
+<a id="more"></a>
+
+<h1 id="一、增加网易云音乐链接"><a href="#一、增加网易云音乐链接" class="headerlink" title="一、增加网易云音乐链接"></a>一、增加网易云音乐链接</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/song/media/outer/url?id=176028.mp3"></iframe>
+
+<p><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/song/media/outer/url?id=350909.mp3&quot;&gt;&lt;/iframe&gt;</code></p>
+<p>将这段代码加到你想要添加的地方，id可在网易云中进行寻找</p>
+<h1 id="二、新增网页背景"><a href="#二、新增网页背景" class="headerlink" title="二、新增网页背景"></a>二、新增网页背景</h1><p>themes\next\source\css \ _custom\custom.styl 文件中新增以下代码</p>
+<p><code>@media screen and (min-width:1200px) &#123;     body &#123;     background-image:url(/uploads/1.gif);     background-repeat: no-repeat;     background-attachment:fixed;     background-position:center;</code></p>
+<p><code>     background-size:100%;      &#125;     #footer a &#123;         color:#eee;     &#125; &#125;</code></p>
+<p>上述代码其实是修改css代码，关于背景图片的格式可参考css样式代码。</p>
+<h1 id="三、自定义文章模板"><a href="#三、自定义文章模板" class="headerlink" title="三、自定义文章模板"></a>三、自定义文章模板</h1><p>每次hexo new “文章名的时候，都会调用scaffolds/post.md文件，因此对该文件进行修改，便可以改变每次新建文章时的样子。可以自己写好一个通用的文章模板进行替换。</p>
+</center>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开启我的学习新历程</title>
     <url>/2021/02/02/%E5%BC%80%E5%90%AF%E6%88%91%E7%9A%84%E6%96%B0%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="开启我的学习新历程"><a href="#开启我的学习新历程" class="headerlink" title="开启我的学习新历程"></a>开启我的学习新历程</h1><h2 id="2021年，正式踏入社会的一年"><a href="#2021年，正式踏入社会的一年" class="headerlink" title="2021年，正式踏入社会的一年"></a>2021年，正式踏入社会的一年</h2><center>路漫漫其修远兮，吾将上下而求索</center>]]></content>
