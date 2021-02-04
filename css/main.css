@@ -1,3 +1,10 @@
+body {
+  background-image: url("../images/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+}
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -1952,7 +1959,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8377b8;
+  background: #b1ff98;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3249,21 +3256,4 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
-}
-body {
-  background-image: url("http://8.129.12.164/images/1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 100%;
-}
-#footer a {
-  color: #eee;
-}
-body {
-  background-image: url("../images/1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 100%;
 }
