@@ -1952,7 +1952,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7d46e3;
+  background: #8377b8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3259,4 +3259,11 @@ body {
 }
 #footer a {
   color: #eee;
+}
+body {
+  background-image: url("../images/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
 }
