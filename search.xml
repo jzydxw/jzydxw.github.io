@@ -54,7 +54,8 @@
   <entry>
     <title>Mysql基础知识整理</title>
     <url>/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="Mysql基础知识整体Mysql基础知识整理"><a href="#Mysql基础知识整体Mysql基础知识整理" class="headerlink" title="Mysql基础知识整体Mysql基础知识整理"></a><center>Mysql基础知识整体Mysql基础知识整理</center></h1><p><strong><em>对MySQL数据库进行整体的知识回顾，后期对每个单独技术点及底层原理进行深入学习</em></strong></p>
+    <content><![CDATA[<h1 id="Mysql基础知识整体Mysql基础知识整理"><a href="#Mysql基础知识整体Mysql基础知识整理" class="headerlink" title="Mysql基础知识整体Mysql基础知识整理"></a><center>Mysql基础知识整体Mysql基础知识整理</center></h1><center>***对MySQL数据库进行整体的知识回顾，后期对每个单独技术点及底层原理进行深入学习***</center>
+
 <a id="more"></a>
 
 <h2 id="数据库定义"><a href="#数据库定义" class="headerlink" title="数据库定义"></a>数据库定义</h2><p>数据库：物理操作文件系统或其他形式文件类型的集合；</p>
@@ -227,5 +228,10 @@
       <tags>
         <tag>MySQL</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>剑指Offer-01</title>
+    <url>/2021/02/19/%E5%89%91%E6%8C%87Offer-01/</url>
+    <content><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><center>标题</center></h1><a id="more"></a>]]></content>
   </entry>
 </search>
