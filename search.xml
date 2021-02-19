@@ -52,10 +52,174 @@
       </tags>
   </entry>
   <entry>
-    <title>Mysql基础知识整体</title>
+    <title>Mysql基础知识整理</title>
     <url>/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><center><strong>标题</strong></center></h1><a id="more"></a>
+    <content><![CDATA[<h1 id="Mysql基础知识整体Mysql基础知识整理"><a href="#Mysql基础知识整体Mysql基础知识整理" class="headerlink" title="Mysql基础知识整体Mysql基础知识整理"></a><center>Mysql基础知识整体Mysql基础知识整理</center></h1><p><strong><em>对MySQL数据库进行整体的知识回顾，后期对每个单独技术点及底层原理进行深入学习</em></strong></p>
+<a id="more"></a>
 
+<h2 id="数据库定义"><a href="#数据库定义" class="headerlink" title="数据库定义"></a>数据库定义</h2><p>数据库：物理操作文件系统或其他形式文件类型的集合；</p>
+<p>实例：MySQL数据库由后台线程以及一个共享内存区组成；</p>
+<ol>
+<li>我们无法直接操作数据库，通过数据库实例来操作数据库文件，类似于操作接口，启动一个MySQL实例会产生两个进程，<code>mysqld</code>是数据库服务守护进程，<code>mysqld_safe</code>是一个用于检查和设置<code>mysqld</code>启动的控制程序，负责MySQL进程的执行，当 <code>mysqld</code> 发生错误时，<code>mysqld_safe</code> 会对其状态进行检查并在合适的条件下重启。</li>
+<li>第一层：用于连接、线程处理；第二层：MySQL核心业务，包括对sql的解析、分析、优化和缓存，存储过程、触发器、视图等；第三层：负责数据的存储和提取的存储引擎</li>
+</ol>
+<h2 id="数据的存储"><a href="#数据的存储" class="headerlink" title="数据的存储"></a><strong>数据的存储</strong></h2><p>以Innodb存储引擎为例，所有的数据被逻辑地存放在表空间中，表空间（tablespace）–段（segment）–区（extent）–页（page）–行（row）</p>
+<ol>
+<li>同一个数据库实例的所有表空间有相同的页大小，默认页大小为16kb，可以通过innodb_page_size进行修改，也会影响最终区的大小。</li>
+<li>innodb存储引擎中，一个区的大小最小为1MB，页的数量最小为64个。</li>
+<li>使用Innodb存储表时，将表的定义和数据索引等信息进行分开存储，表的定义存在<code>.frm</code>文件中，而数据索引存储在<code>.ibd</code>文件中</li>
+<li><code>.frm</code>文件，无论是哪个存储引擎，MySQL表都会在硬盘上创建该文件来描述表的格式或定义</li>
+<li><code>.ibd</code>文件是表空间文件，里面存储了当前表的数据与索引数据。</li>
+<li>页是磁盘管理的最小单位，数据按照行来存储，每个16KB的页中可以存放2-200行的记录。</li>
+<li>这里的行存储方式有两种，一种是倒序存放一行数据中列长度，一种是存放每一列的偏移量（**<strong>**后续深入了解</strong>）</li>
+</ol>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a><strong>索引</strong></h2><ol>
+<li><p>Innodb存储引擎绝大多数使用B+树建立索引，但并不能找到一个给定键对应的具体值，只能找到数据行对应的列，然后把整个页读入到内存中，并在内存中查找具体的数据行。</p>
+</li>
+<li><p>B+树是平衡树，它查找任意节点耗费时间都是完全相同的，比较次数是B+树的高度。</p>
+</li>
+<li><p>B+树索引可以分为<code>聚集索引（clustered index)</code>和<code>辅助索引（secondary index）</code>,区别在于，聚集索引中存放着一条行记录的全部信息，而辅助索引值包含索引列和一个用于查找对应行记录的书签。</p>
+</li>
+<li><p><strong>聚集索引</strong>：按照键的顺序存放，即按照表中主键的顺序构建一颗B+树，并在叶节点中存放表中的行记录数据。所有正常的表应有且只有一个聚集索引（一般为主键），表中的所有行记录数据都是按照聚集索引的顺序存放。</p>
+</li>
+<li><p><strong>辅助索引</strong>：一张表一定包含一个聚集索引构成的B+树以及若干辅助索引构成的B+树。查询过程：通过辅助索引查找到对应的主键，最后在聚集索引中使用主键获取对应的行记录。</p>
+</li>
+<li><p>索引的设计（后续深入了解）</p>
+</li>
+<li><blockquote>
+<p><em>MyISAM和InnoDB两种存储引擎的索引对比</em></p>
+<p><strong>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。</strong></p>
+<ul>
+<li><p>MyISAM引擎使用B+树作为索引结构，叶节点的data域存放的是数据记录的地址。</p>
+<p><img src="/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/74ca3392b1a44b50dd96d39f9d3d948051f.png" alt="74ca3392b1a44b50dd96d39f9d3d948051f.png"></p>
+</li>
+<li><p>虽然InnoDB也使用B+Tree作为索引结构，但具体实现方式却与MyISAM截然不同。</p>
+<p>第一个重大区别是InnoDB的数据文件本身就是索引文件。从上文知道，MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。而在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。</p>
+<p><img src="/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/7ba6f97a23ee9bcd3c1e5a5080469746c50.png" alt="img"></p>
+<p>第二个与MyISAM索引的不同是InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>导致索引失效的可能情况：</p>
+<ul>
+<li><p>隐式转换导致索引失效，如varchar当做了number类型。</p>
+</li>
+<li><p>对索引列进行运算导致索引失效,进行运算包括(+，-，*，/，! 等)</p>
+</li>
+<li><p>以下使用会使索引失效，应避免使用；</p>
+<p>a. 使用 &lt;&gt; 、not in、not exist、!= 、or、is null 、is not null</p>
+<p>b. like “%_”百分号在前（可采用在建立索引时用reverse(columnName)这种方法处理）</p>
+<p>c. 单独引用复合索引里非第一位置的索引列.应总是使用索引的第一个列，如果索引是建立在多个列上,只有在它的第一个列被 where子句引用时，优化器才会选择使用该索引。</p>
+<p>d.字符型字段为数字时在where条件里不添加引号.</p>
+<p>e.当变量采用的是times变量，而表的字段采用的是date变量时.或相反情况。</p>
+<p>f.不在索引上做任何操作(计算,函数,(自动/手动)类型转换,这样会导致索引失效而转向全表扫描。</p>
+<p>g.避免select *。</p>
+</li>
+<li><p>不要在 SQL 代码中使用双引号。</p>
+</li>
+<li><p><img src="/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/811d6e05394351752c917e0ca4f9d29228b.png" alt="img"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a><strong>锁</strong></h2><ol>
+<li><p>Innodb存储引擎采用悲观锁，按照粒度也可以划分成行锁和表锁。</p>
+</li>
+<li><p><code>乐观锁</code>不是锁，只是一种思想，在对资源进行修改的时候，会判断资料是否进行了改变，没有改变就修改，否则就重试，并没有对数据库进行加锁。</p>
+</li>
+<li><p><code>悲观锁</code>是一种锁，在获取资源前对资源加锁，确保同一时刻只有有限的线程能够访问，其他线程都进入等待状态，直达该线程完成操作并释放锁。</p>
+</li>
+<li><p><strong>乐观锁与悲观锁的选择</strong>：当<code>冲突频率</code>和<code>重试成本</code>较高时推荐使用悲观锁，当需要非常高的<code>响应速度</code>且<code>高并发量</code>的时候推荐使用乐观锁。、</p>
+</li>
+<li><p><strong>行级锁</strong>：主要分为<code>共享锁（shared lock）</code>和<code>互斥锁（exclusive lock）</code>，共享锁（读锁）：允许事务对一条行数据进行读取，互斥锁（写锁）：允许事务对一条行数据进行删除或更新。即共享锁兼容，互斥锁与其他任意锁不兼容。</p>
+</li>
+<li><p><strong>表锁</strong>：上述的共享锁和互斥锁都是对某一个数据行进行加锁，为了支持多粒度锁定，Innodb存储引擎加入了<strong>意向锁（intention lock）</strong>，这是一种表级锁，意向锁也分为两种：<strong>意向共享锁</strong>：事务想要在获得表中某些记录的共享锁，需要在表上先加意向共享锁；<strong>意向互斥锁</strong>：事务想要在获得表中某些记录的互斥锁，需要在表上先加意向互斥锁；<em>意向锁其实不会阻塞全表扫描之外的任何请求，它们的主要目的是为了表示是否有人请求锁定表中的某一行数据。</em></p>
+</li>
+<li><p><strong>锁的算法</strong>：record lock、gap lock、next-key lock。</p>
+</li>
+<li><p><strong>Record Lock</strong>:这是一个加到索引记录上的锁，在where语句的过滤条件中，如果是主键过滤，那么innodb可以通过索引建立B+树找到行记录并添加索引，而如果不是主键过滤，innodb不知道待修改的记录具体存放位置，从而锁定整个表。</p>
+</li>
+<li><p><strong>Gap Lock</strong>：间隙锁，即对索引记录中的一段连续区域的锁，当使用类似 <code>SELECT * FROM users WHERE id BETWEEN 10 AND 20 FOR UPDATE;</code> 的 SQL 语句时，就会阻止其他事务向表中插入 <code>id = 15</code> 的记录，因为整个范围都被间隙锁锁定了。间隙锁是存储引擎对于性能和并发做出的权衡，并且只用于某些事务隔离级别。虽然间隙锁中也分为共享锁和互斥锁，不过它们之间并不是互斥的，也就是不同的事务可以同时持有一段相同范围的共享锁和互斥锁，它唯一阻止的就是<strong>其他事务向这个范围中添加新的记录</strong>。</p>
+</li>
+<li><p>Next-Key 锁相比前两者就稍微有一些复杂，它是记录锁和记录前的间隙锁的结合，在 <code>users</code> 表中有以下记录：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">+</span><span class="comment">------+-------------+--------------+-------+</span></span><br><span class="line"><span class="operator">|</span>   id <span class="operator">|</span> last_name   <span class="operator">|</span> first_name   <span class="operator">|</span>   age <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span><span class="comment">------+-------------+--------------+-------|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">4</span> <span class="operator">|</span> stark       <span class="operator">|</span> tony         <span class="operator">|</span>    <span class="number">21</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> tom         <span class="operator">|</span> hiddleston   <span class="operator">|</span>    <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> morgan      <span class="operator">|</span> freeman      <span class="operator">|</span>    <span class="number">40</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">5</span> <span class="operator">|</span> jeff        <span class="operator">|</span> dean         <span class="operator">|</span>    <span class="number">50</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> donald      <span class="operator">|</span> trump        <span class="operator">|</span>    <span class="number">80</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+-------------+--------------+-------+</span></span><br></pre></td></tr></table></figure>
+<p>如果使用 Next-Key 锁，那么 Next-Key 锁就可以在需要的时候锁定以下的范围：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="operator">-</span>∞, <span class="number">21</span>]</span><br><span class="line">(<span class="number">21</span>, <span class="number">30</span>]</span><br><span class="line">(<span class="number">30</span>, <span class="number">40</span>]</span><br><span class="line">(<span class="number">40</span>, <span class="number">50</span>]</span><br><span class="line">(<span class="number">50</span>, <span class="number">80</span>]</span><br><span class="line">(<span class="number">80</span>, ∞)</span><br></pre></td></tr></table></figure>
+<p>当我们更新一条记录，比如 <code>SELECT * FROM users WHERE age = 30 FOR UPDATE;</code>，InnoDB 不仅会在范围 <code>(21, 30]</code> 上加 Next-Key 锁，还会在这条记录后面的范围 <code>(30, 40]</code> 加间隙锁，所以插入 <code>(21, 40]</code> 范围内的记录都会被锁定。</p>
+<p>Next-Key 锁的作用其实是为了解决幻读的问题。</p>
+<h2 id="事务与隔离级别"><a href="#事务与隔离级别" class="headerlink" title="事务与隔离级别"></a><strong>事务与隔离级别</strong></h2><blockquote>
+<p>ACID四大特性：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>原子性：一个事务的所有操作，要么全部成功，要么都不成功。</p>
+<p>一致性：事务执行前后保证数据的完整性。比如转账，总金额不变</p>
+<p>隔离性：一个事务的执行，不能受其他事务的干扰。</p>
+<p>持久性：一个事务一旦执行成功，它对数据的修改就是永久性的。</p>
+</blockquote>
+<pre><code>1. 四种隔离级别：`READ UNCOMMITED`、`READ COMMITED`、`REPEATABLE READ` 和 `SERIALIZABLE`；每个事务的隔离级别其实都比上一级多解决了一个问题。
+
+   - `RAED UNCOMMITED`：使用查询语句不会加锁，可能会读到未提交的行（Dirty Read）；
+   
+   - `READ COMMITED`：只对记录加记录锁，而不会在记录之间加间隙锁，所以允许新的记录插入到被锁定记录的附近，所以再多次使用查询语句时，可能得到不同的结果（Non-Repeatable Read）；
+   
+- `REPEATABLE READ`：（MySQL默认事务隔离级别）多次读取同一范围的数据会返回第一次查询的快照，不会返回不同的数据行，但是可能发生幻读（Phantom Read）；
+   
+   - `SERIALIZABLE`：InnoDB 隐式地将全部的查询语句加上共享锁，解决了幻读的问题；
+   
+     &gt;脏读：读到另一个事务未提交的数据。
+     &gt;
+     &gt;不可重复读：对一个事物两次读取不一致，另一个事物做了修改。
+     &gt;
+     &gt;幻读：对一张表两次查询不一致，另一个事务插入或删除了记录，出现幻行、。
+</code></pre>
+<h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a><strong>数据库三范式</strong></h2><blockquote>
+<p>第一范式：确保每一列的原子性，字段不可再分。</p>
+<p>第二范式：满足第一范式，非主键字段依赖于主键字段，一个表只能说明一个事物。</p>
+<p>第三范式：满足第二范式，任何非主键属性不能依赖于其他非主键属性。</p>
+</blockquote>
+<h2 id="MySQL基础命令操作"><a href="#MySQL基础命令操作" class="headerlink" title="MySQL基础命令操作"></a><strong><em>MySQL基础命令操作</em></strong></h2><blockquote>
+<p>数据库操作</p>
+<ul>
+<li>查看数据库：show databases;</li>
+<li>创建数据库：create database 名字 charset utf8;并指定编码</li>
+<li>使用数据库：use 名字;</li>
+<li>改变数据库编码：alter database 名字 charset utf8;</li>
+<li>删除数据库：drop database;</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>表操作</p>
+<ul>
+<li>创建表：create table 名字 (id int, name char(16));</li>
+<li>查看表：show tables;</li>
+<li>查看刚刚创建的表： show create table 名字;</li>
+<li>查看表的基本信息：desec 名字;</li>
+<li>修改表的数据类型：alter table class modify 名字 char(16);</li>
+<li>修改表的字段名和数据类型：alter table class change 名字 新名字 char(18);</li>
+<li>新增记录：insert into 名字 values(1,’sky’),(2,’rabbit’);</li>
+<li>查询记录：select * from 名字;</li>
+<li>修改记录：update 名字 set name = ‘新的值’;</li>
+<li>删除记录：delete from 名字 where 条件;</li>
+<li>删除表：drop table 名字;</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>客户端相关操作</p>
+<ul>
+<li>启动客户端：mysql -u 账户名 -p</li>
+<li>查看字符集编码的命令：show variables like ‘“%char%”;</li>
+<li>客户端连接服务端完整命令：mysql -h ip地址 -P 端口 -u 账户 -p 密码;</li>
+<li>修改密码：1. 登录后–set password for 用户名@localhost = password(‘新密码’);<pre><code>            2. mysqladmin -u用户名 -p旧密码 password 新密码
+</code></pre>
+</li>
+</ul>
+<p>未完待续……</p>
+</blockquote>
+<h2 id="drop-、truncate、delete"><a href="#drop-、truncate、delete" class="headerlink" title="drop 、truncate、delete"></a>drop 、truncate、delete</h2><p> drop直接删掉表， truncate删除表中数据，<strong>再插入时自增长id又从1开始</strong> ；delete删除表中数据，可以加where字句，delete的自增长id不会变，从上一个最大值开始</p>
+<p><strong>当你不再需要该表时， 用 drop；当你仍要保留该表，但要删除所有记录时， 用 truncate；当你要删除部分记录时（always with a WHERE clause), 用 delete.</strong></p>
 ]]></content>
       <categories>
         <category>MySQL</category>
