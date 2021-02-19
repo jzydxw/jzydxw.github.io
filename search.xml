@@ -57,5 +57,11 @@
     <content><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><center><strong>标题</strong></center></h1><a id="more"></a>
 
 ]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
   </entry>
 </search>
