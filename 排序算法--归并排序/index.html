@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="算法,排序算法,快速排序," />
+  <meta name="keywords" content="排序算法," />
 
 
 
@@ -130,19 +130,17 @@
 
 
 
-<meta name="description" content="排序算法–快速排序快速排序时间复杂度平均状态下O（NlogN），空间复杂度O（1）">
+<meta name="description" content="排序算法–归并排序归并排序最坏情况下时间复杂度O（NlogN），空间复杂度O（N）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法--快速排序">
-<meta property="og:url" content="http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="排序算法--归并排序">
+<meta property="og:url" content="http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="JZY Blog">
-<meta property="og:description" content="排序算法–快速排序快速排序时间复杂度平均状态下O（NlogN），空间复杂度O（1）">
+<meta property="og:description" content="排序算法–归并排序归并排序最坏情况下时间复杂度O（NlogN），空间复杂度O（N）">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-02-21T04:25:05.000Z">
-<meta property="article:modified_time" content="2021-02-21T05:55:10.555Z">
+<meta property="article:published_time" content="2021-02-21T06:33:20.000Z">
+<meta property="article:modified_time" content="2021-02-21T07:11:00.292Z">
 <meta property="article:author" content="月下瑶雪">
-<meta property="article:tag" content="算法">
 <meta property="article:tag" content="排序算法">
-<meta property="article:tag" content="快速排序">
 <meta name="twitter:card" content="summary">
 
 
@@ -173,13 +171,13 @@
 
 
 
-  <link rel="canonical" href="http://8.129.12.164/排序算法--快速排序/"/>
+  <link rel="canonical" href="http://8.129.12.164/排序算法--归并排序/"/>
 
 
 
 
 
-  <title>排序算法--快速排序 | JZY Blog</title>
+  <title>排序算法--归并排序 | JZY Blog</title>
   
 
 
@@ -351,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -368,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">排序算法--快速排序</h1>
+          <h1 class="post-title" itemprop="name headline">排序算法--归并排序</h1>
         
 
         <div class="post-meta">
@@ -380,7 +378,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-21T12:25:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-21T14:33:20+08:00">
                 2021-02-21
               </time>
             
@@ -432,9 +430,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#comments" itemprop="discussionUrl">
+                <a href="/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/排序算法--快速排序/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/排序算法--归并排序/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -461,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  574
+                  418
                 </span>
               
 
@@ -477,7 +475,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -498,24 +496,27 @@
       
 
       
-        <h1 id="排序算法–快速排序"><a href="#排序算法–快速排序" class="headerlink" title="排序算法–快速排序"></a><center>排序算法–快速排序</center></h1><p>快速排序时间复杂度平均状态下O（NlogN），空间复杂度O（1）</p>
+        <h1 id="排序算法–归并排序"><a href="#排序算法–归并排序" class="headerlink" title="排序算法–归并排序"></a><center>排序算法–归并排序</center></h1><p>归并排序最坏情况下时间复杂度O（NlogN），空间复杂度O（N）</p>
 <a id="more"></a>
 
-<h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><blockquote>
-<p>快速排序的核心思想：</p>
+<h2 id="算法思维"><a href="#算法思维" class="headerlink" title="算法思维"></a>算法思维</h2><blockquote>
 <ul>
-<li>任意选取一个数作为中心轴，pivot</li>
-<li>两个指针分别从左从右向中间遍历，将大于pivot的数字放到中心轴的右边，将小于pivot的数字放到中心轴的左边</li>
-<li>分别对左右子序列重复上述操作</li>
+<li>将序列中代排序数字分为若干组，每个数字分为一组</li>
+<li>将若干个组两两合并，保证合并后的数组是有序的</li>
+<li>重复第二步操作直到剩下一组，排序完成</li>
 </ul>
 </blockquote>
-<p><strong>这里后期最好补上动画效果会更好些</strong></p>
-<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123; <span class="comment">// 传入一个数组，左边界与右边界</span></span><br><span class="line">        <span class="keyword">if</span> (L &gt;= R) <span class="keyword">return</span>; <span class="comment">// 预先判定左右边界是否符合要求</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = arr[L];</span><br><span class="line">        <span class="keyword">int</span> right = arr[R]; <span class="comment">// 指定两个左右指针</span></span><br><span class="line">        <span class="keyword">int</span> pivot = arr[left]; <span class="comment">// 指定数组最左边的数为中心轴，pivot，不用担心后续被覆盖</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123; <span class="comment">// 只要左右两指针没有重合，就一直循环</span></span><br><span class="line">            <span class="comment">// 先从右指针开始</span></span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[right] &gt;= arr[pivot])&#123;</span><br><span class="line">               right--; <span class="comment">// 如果右指针的值始终大于中心轴，那右指针就一直左移，直到值小于中心轴，这样才退出while循环</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">                arr[left] = arr[right]; <span class="comment">// 走到这步意味着右指针一直左移到退出循环，但不能保证是否还大于左指针，需要判断，并将右指针的值赋值给左指针</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左指针开始</span></span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[left] &lt;= arr[pivot])&#123; <span class="comment">// 左指针的值如果小于中心轴，指针向右</span></span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt; right)&#123; <span class="comment">// 先判断边界</span></span><br><span class="line">                arr[right] = arr[left]; <span class="comment">// 左指针的值赋值给右指针</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &gt;= right)&#123; <span class="comment">// 这里意味着左右指针已经重合，则把中心轴的值赋值给左指针</span></span><br><span class="line">                arr[left] = pivot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 走出while循环，意味着已经完成一轮比较，接下来是对中心轴的左右两个子列重复上述操作</span></span><br><span class="line">        quickSort(arr,L,right-<span class="number">1</span>); <span class="comment">// 左边子列循环，还是原始数组，L为左边界，此时的right-1为中心轴的左侧一位</span></span><br><span class="line">        quickSort(arr,right+<span class="number">1</span>,R); <span class="comment">// 右边子列循环，原始数组，right+1为中心轴右侧一位，R为右边界</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O(nlogn)</li>
+<li>空间复杂度：O(n)</li>
+<li>稳定性：稳定</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123; <span class="comment">// 传入数组，左右两边界</span></span><br><span class="line">        <span class="comment">// 先进行边界判定</span></span><br><span class="line">        <span class="keyword">if</span> (left &gt;= right) <span class="keyword">return</span>;</span><br><span class="line">        <span class="comment">// 找出中点</span></span><br><span class="line">        <span class="keyword">int</span> mid = (left + right)&gt;&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 准备递归拆分</span></span><br><span class="line">        mergeSort(arr,left,mid);</span><br><span class="line">        mergeSort(arr,mid+<span class="number">1</span>,right);</span><br><span class="line">        <span class="comment">// 合并</span></span><br><span class="line">        merge(arr,left,mid,right);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> s1 = left; <span class="comment">// 第一个归并段的起点</span></span><br><span class="line">       <span class="keyword">int</span> s2 = mid+<span class="number">1</span>; <span class="comment">// 第二个归并段的起点</span></span><br><span class="line">       <span class="comment">// 定义临时数组</span></span><br><span class="line">       <span class="keyword">int</span>[] ret = <span class="keyword">new</span> <span class="keyword">int</span>[right-left+<span class="number">1</span>];</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 表示临时数组的起点</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">// 两个归并段都有数据下</span></span><br><span class="line">       <span class="keyword">while</span> (s1 &lt;= mid &amp;&amp; s2 &lt;= right)&#123;</span><br><span class="line">           <span class="comment">// 比较两个归并段的值</span></span><br><span class="line">           <span class="keyword">if</span> (arr[s1] &lt;= arr[s2])&#123;</span><br><span class="line">               ret[i++] = arr[s1++];</span><br><span class="line">           &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">               ret[i++] = arr[s2++];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 当某个归并段没有数据则跳出上述循环，则需要把仍有数据的归并段加到临时数组</span></span><br><span class="line">       <span class="keyword">while</span> (s1 &lt;= mid)&#123;</span><br><span class="line">           ret[i++] = arr[s1++]; <span class="comment">// 如果第一个归并段有数据</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">while</span> (s2 &lt;= right)&#123;</span><br><span class="line">           ret[i++] = arr[s2++]; <span class="comment">// 如果第二个归并段有数据</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 把临时数组的数据拷贝到原本的数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length; j++)&#123;</span><br><span class="line">            arr[j+left]= ret[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
-<p>更多关于快排的算法题正在整理</p>
+<p>更多的归并算法题正在整理中</p>
 
       
     </div>
@@ -570,11 +571,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
-          
             <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag"># 排序算法</a>
-          
-            <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" rel="tag"># 快速排序</a>
           
         </div>
       
@@ -587,8 +584,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/02/20/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="大话设计模式学习笔记">
-                <i class="fa fa-chevron-left"></i> 大话设计模式学习笔记
+              <a href="/hexo%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86%E4%BC%98%E5%8C%96/" rel="next" title="hexo文章整理优化">
+                <i class="fa fa-chevron-left"></i> hexo文章整理优化
               </a>
             
           </div>
@@ -596,10 +593,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hexo%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86%E4%BC%98%E5%8C%96/" rel="prev" title="hexo文章整理优化">
-                hexo文章整理优化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -813,7 +806,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E2%80%93%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">排序算法–快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-number">1.2.</span> <span class="nav-text">代码演示</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E2%80%93%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">排序算法–归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4"><span class="nav-number">1.1.</span> <span class="nav-text">算法思维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1010,9 +1003,9 @@ var jiathis_config={
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/';
-          this.page.identifier = '/排序算法--快速排序/';
-          this.page.title = '排序算法--快速排序';
+          this.page.url = 'http://8.129.12.164/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/';
+          this.page.identifier = '/排序算法--归并排序/';
+          this.page.title = '排序算法--归并排序';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://月下之瑶.disqus.com/embed.js';

@@ -632,4 +632,37 @@
         <tag>设计模式</tag>
       </tags>
   </entry>
+  <entry>
+    <title>排序算法--归并排序</title>
+    <url>//%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="排序算法–归并排序"><a href="#排序算法–归并排序" class="headerlink" title="排序算法–归并排序"></a><center>排序算法–归并排序</center></h1><p>归并排序最坏情况下时间复杂度O（NlogN），空间复杂度O（N）</p>
+<a id="more"></a>
+
+<h2 id="算法思维"><a href="#算法思维" class="headerlink" title="算法思维"></a>算法思维</h2><blockquote>
+<ul>
+<li>将序列中代排序数字分为若干组，每个数字分为一组</li>
+<li>将若干个组两两合并，保证合并后的数组是有序的</li>
+<li>重复第二步操作直到剩下一组，排序完成</li>
+</ul>
+</blockquote>
+<ul>
+<li>时间复杂度：O(nlogn)</li>
+<li>空间复杂度：O(n)</li>
+<li>稳定性：稳定</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123; <span class="comment">// 传入数组，左右两边界</span></span><br><span class="line">        <span class="comment">// 先进行边界判定</span></span><br><span class="line">        <span class="keyword">if</span> (left &gt;= right) <span class="keyword">return</span>;</span><br><span class="line">        <span class="comment">// 找出中点</span></span><br><span class="line">        <span class="keyword">int</span> mid = (left + right)&gt;&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 准备递归拆分</span></span><br><span class="line">        mergeSort(arr,left,mid);</span><br><span class="line">        mergeSort(arr,mid+<span class="number">1</span>,right);</span><br><span class="line">        <span class="comment">// 合并</span></span><br><span class="line">        merge(arr,left,mid,right);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> s1 = left; <span class="comment">// 第一个归并段的起点</span></span><br><span class="line">       <span class="keyword">int</span> s2 = mid+<span class="number">1</span>; <span class="comment">// 第二个归并段的起点</span></span><br><span class="line">       <span class="comment">// 定义临时数组</span></span><br><span class="line">       <span class="keyword">int</span>[] ret = <span class="keyword">new</span> <span class="keyword">int</span>[right-left+<span class="number">1</span>];</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 表示临时数组的起点</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">// 两个归并段都有数据下</span></span><br><span class="line">       <span class="keyword">while</span> (s1 &lt;= mid &amp;&amp; s2 &lt;= right)&#123;</span><br><span class="line">           <span class="comment">// 比较两个归并段的值</span></span><br><span class="line">           <span class="keyword">if</span> (arr[s1] &lt;= arr[s2])&#123;</span><br><span class="line">               ret[i++] = arr[s1++];</span><br><span class="line">           &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">               ret[i++] = arr[s2++];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 当某个归并段没有数据则跳出上述循环，则需要把仍有数据的归并段加到临时数组</span></span><br><span class="line">       <span class="keyword">while</span> (s1 &lt;= mid)&#123;</span><br><span class="line">           ret[i++] = arr[s1++]; <span class="comment">// 如果第一个归并段有数据</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">while</span> (s2 &lt;= right)&#123;</span><br><span class="line">           ret[i++] = arr[s2++]; <span class="comment">// 如果第二个归并段有数据</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 把临时数组的数据拷贝到原本的数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length; j++)&#123;</span><br><span class="line">            arr[j+left]= ret[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>更多的归并算法题正在整理中</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序算法</category>
+      </categories>
+      <tags>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
 </search>
