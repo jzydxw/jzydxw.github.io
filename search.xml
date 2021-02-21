@@ -203,6 +203,37 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo文章整理优化</title>
+    <url>//hexo%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="hexo文章分类整理优化"><a href="#hexo文章分类整理优化" class="headerlink" title="hexo文章分类整理优化"></a><center>hexo文章分类整理优化</center></h1><h2 id="1-起因"><a href="#1-起因" class="headerlink" title="1.起因"></a>1.起因</h2><p>考虑到随着自己做的笔记越来越多，新建的文章全部都是放在<code>source/_posts</code>中，点进去显得很乱，没有规律，也不方便整理，因此提出是否可以整理这些文章</p>
+<a id="more"></a>
+
+<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2.解决方案"></a>2.解决方案</h2><blockquote>
+<p>我们可以按照时间来进行文章分类，或者按照自己喜欢的方式，如文章类型等方式分类（这里还在摸索中），以下为按文章时间分类的方法</p>
+</blockquote>
+<ul>
+<li>打开<code>_config.yml</code>文件</li>
+<li>把<code>new_post_name: :title</code>改为以下内容：<ul>
+<li>new_post_name:  :year/:month/:day/:title.md （按年月日）</li>
+<li>new_post_name:  :year/:month/:title.md （按年月）</li>
+<li>new_post_name:  :year/:title.md （按年）</li>
+</ul>
+</li>
+<li><code>permalink: :year/:month/:day/:title</code>保持不变</li>
+<li>打开<code>scaffolds/post.md</code>文件模板</li>
+<li>加入字段<code>permalink: &#123;&#123; title &#125;&#125;/</code>，保存</li>
+</ul>
+<p>这样使用<code>hexo new 文章名</code> 就会自动在<code>_post</code>文件夹中自动生成时间文件夹，并每一个文章中都会有<code>permalink</code>。</p>
+<h2 id="3-BUG"><a href="#3-BUG" class="headerlink" title="3.BUG"></a>3.BUG</h2><p>在点击文章的时候，却总是出现文章不显示，直接跳出下载文章的对话框，经过调试发现，是文章中的<code>permalink</code>后的文章名后面没有写<code>/</code> 导致，加上这个就可以了，因此为了不让每次人为的加上“/” 号，所以可以直接在模板上加上，即<code>permalink: &#123;&#123; title &#125;&#125;/</code>。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>剑指Offer-01-二维数组中的查找</title>
     <url>/2021/02/19/%E5%89%91%E6%8C%87Offer-01/</url>
     <content><![CDATA[<h1 id="剑指Offer-01-二维数组中的查找"><a href="#剑指Offer-01-二维数组中的查找" class="headerlink" title="剑指Offer-01-二维数组中的查找"></a><center>剑指Offer-01-二维数组中的查找</center></h1><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
