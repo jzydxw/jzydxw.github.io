@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo-next主题优化</title>
-    <url>/2021/02/04/hexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<center>此贴用来记录自己对hexo-next主题进行相关优化的功能点需求
-
-<a id="more"></a>
-
-<h1 id="一、增加网易云音乐链接"><a href="#一、增加网易云音乐链接" class="headerlink" title="一、增加网易云音乐链接"></a>一、增加网易云音乐链接</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/song/media/outer/url?id=176028.mp3"></iframe>
-
-<p><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/song/media/outer/url?id=350909.mp3&quot;&gt;&lt;/iframe&gt;</code></p>
-<p>将这段代码加到你想要添加的地方，id可在网易云中进行寻找</p>
-<h1 id="二、新增网页背景"><a href="#二、新增网页背景" class="headerlink" title="二、新增网页背景"></a>二、新增网页背景</h1><p>themes\next\source\css \ _custom\custom.styl 文件中新增以下代码</p>
-<p><code>@media screen and (min-width:1200px) &#123;     body &#123;     background-image:url(/uploads/1.gif);     background-repeat: no-repeat;     background-attachment:fixed;     background-position:center;</code></p>
-<p><code>     background-size:100%;      &#125;     #footer a &#123;         color:#eee;     &#125; &#125;</code></p>
-<p>上述代码其实是修改css代码，关于背景图片的格式可参考css样式代码。</p>
-<h1 id="三、自定义文章模板"><a href="#三、自定义文章模板" class="headerlink" title="三、自定义文章模板"></a>三、自定义文章模板</h1><p>每次hexo new “文章名的时候，都会调用scaffolds/post.md文件，因此对该文件进行修改，便可以改变每次新建文章时的样子。可以自己写好一个通用的文章模板进行替换。</p>
-</center>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开启我的学习新历程</title>
-    <url>/2021/02/02/%E5%BC%80%E5%90%AF%E6%88%91%E7%9A%84%E6%96%B0%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="开启我的学习新历程"><a href="#开启我的学习新历程" class="headerlink" title="开启我的学习新历程"></a>开启我的学习新历程</h1><h2 id="2021年，正式踏入社会的一年"><a href="#2021年，正式踏入社会的一年" class="headerlink" title="2021年，正式踏入社会的一年"></a>2021年，正式踏入社会的一年</h2><center>路漫漫其修远兮，吾将上下而求索</center>]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机组成原理</title>
-    <url>/2021/02/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<center>计算机组成原理
-
-<p>​    本笔记是在B站自学的计算机组成原理课程，该课程主要是为了快速弥补基础知识，具体深入了解还需其他书籍与课程。该基础课程链接：<a href="https://www.bilibili.com/video/BV1rV411k7Xf?p=1">https://www.bilibili.com/video/BV1rV411k7Xf?p=1</a></p>
-<a id="more"></a>
-
-<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1></center>]]></content>
-      <categories>
-        <category>计算机组成原理</category>
-      </categories>
-      <tags>
-        <tag>计算机组成原理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql基础知识整理</title>
     <url>/2021/02/19/Mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="Mysql基础知识整体Mysql基础知识整理"><a href="#Mysql基础知识整体Mysql基础知识整理" class="headerlink" title="Mysql基础知识整体Mysql基础知识整理"></a><center>Mysql基础知识整体Mysql基础知识整理</center></h1><center>***对MySQL数据库进行整体的知识回顾，后期对每个单独技术点及底层原理进行深入学习***</center>
@@ -230,6 +179,30 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo-next主题优化</title>
+    <url>/2021/02/04/hexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<center>此贴用来记录自己对hexo-next主题进行相关优化的功能点需求
+
+<a id="more"></a>
+
+<h1 id="一、增加网易云音乐链接"><a href="#一、增加网易云音乐链接" class="headerlink" title="一、增加网易云音乐链接"></a>一、增加网易云音乐链接</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/song/media/outer/url?id=176028.mp3"></iframe>
+
+<p><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/song/media/outer/url?id=350909.mp3&quot;&gt;&lt;/iframe&gt;</code></p>
+<p>将这段代码加到你想要添加的地方，id可在网易云中进行寻找</p>
+<h1 id="二、新增网页背景"><a href="#二、新增网页背景" class="headerlink" title="二、新增网页背景"></a>二、新增网页背景</h1><p>themes\next\source\css \ _custom\custom.styl 文件中新增以下代码</p>
+<p><code>@media screen and (min-width:1200px) &#123;     body &#123;     background-image:url(/uploads/1.gif);     background-repeat: no-repeat;     background-attachment:fixed;     background-position:center;</code></p>
+<p><code>     background-size:100%;      &#125;     #footer a &#123;         color:#eee;     &#125; &#125;</code></p>
+<p>上述代码其实是修改css代码，关于背景图片的格式可参考css样式代码。</p>
+<h1 id="三、自定义文章模板"><a href="#三、自定义文章模板" class="headerlink" title="三、自定义文章模板"></a>三、自定义文章模板</h1><p>每次hexo new “文章名的时候，都会调用scaffolds/post.md文件，因此对该文件进行修改，便可以改变每次新建文章时的样子。可以自己写好一个通用的文章模板进行替换。</p>
+</center>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>剑指Offer-01-二维数组中的查找</title>
     <url>/2021/02/19/%E5%89%91%E6%8C%87Offer-01/</url>
     <content><![CDATA[<h1 id="剑指Offer-01-二维数组中的查找"><a href="#剑指Offer-01-二维数组中的查找" class="headerlink" title="剑指Offer-01-二维数组中的查找"></a><center>剑指Offer-01-二维数组中的查找</center></h1><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
@@ -276,6 +249,66 @@
       <tags>
         <tag>算法</tag>
         <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开启我的学习新历程</title>
+    <url>/2021/02/02/%E5%BC%80%E5%90%AF%E6%88%91%E7%9A%84%E6%96%B0%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="开启我的学习新历程"><a href="#开启我的学习新历程" class="headerlink" title="开启我的学习新历程"></a>开启我的学习新历程</h1><h2 id="2021年，正式踏入社会的一年"><a href="#2021年，正式踏入社会的一年" class="headerlink" title="2021年，正式踏入社会的一年"></a>2021年，正式踏入社会的一年</h2><center>路漫漫其修远兮，吾将上下而求索</center>]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序算法--快速排序</title>
+    <url>//%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F</url>
+    <content><![CDATA[<h1 id="排序算法–快速排序"><a href="#排序算法–快速排序" class="headerlink" title="排序算法–快速排序"></a><center>排序算法–快速排序</center></h1><p>快速排序时间复杂度平均状态下O（NlogN），空间复杂度O（1）</p>
+<a id="more"></a>
+
+<h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><blockquote>
+<p>快速排序的核心思想：</p>
+<ul>
+<li>任意选取一个数作为中心轴，pivot</li>
+<li>两个指针分别从左从右向中间遍历，将大于pivot的数字放到中心轴的右边，将小于pivot的数字放到中心轴的左边</li>
+<li>分别对左右子序列重复上述操作</li>
+</ul>
+</blockquote>
+<p><strong>这里后期最好补上动画效果会更好些</strong></p>
+<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123; <span class="comment">// 传入一个数组，左边界与右边界</span></span><br><span class="line">        <span class="keyword">if</span> (L &gt;= R) <span class="keyword">return</span>; <span class="comment">// 预先判定左右边界是否符合要求</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = arr[L];</span><br><span class="line">        <span class="keyword">int</span> right = arr[R]; <span class="comment">// 指定两个左右指针</span></span><br><span class="line">        <span class="keyword">int</span> pivot = arr[left]; <span class="comment">// 指定数组最左边的数为中心轴，pivot，不用担心后续被覆盖</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123; <span class="comment">// 只要左右两指针没有重合，就一直循环</span></span><br><span class="line">            <span class="comment">// 先从右指针开始</span></span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[right] &gt;= arr[pivot])&#123;</span><br><span class="line">               right--; <span class="comment">// 如果右指针的值始终大于中心轴，那右指针就一直左移，直到值小于中心轴，这样才退出while循环</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">                arr[left] = arr[right]; <span class="comment">// 走到这步意味着右指针一直左移到退出循环，但不能保证是否还大于左指针，需要判断，并将右指针的值赋值给左指针</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左指针开始</span></span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[left] &lt;= arr[pivot])&#123; <span class="comment">// 左指针的值如果小于中心轴，指针向右</span></span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt; right)&#123; <span class="comment">// 先判断边界</span></span><br><span class="line">                arr[right] = arr[left]; <span class="comment">// 左指针的值赋值给右指针</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &gt;= right)&#123; <span class="comment">// 这里意味着左右指针已经重合，则把中心轴的值赋值给左指针</span></span><br><span class="line">                arr[left] = pivot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 走出while循环，意味着已经完成一轮比较，接下来是对中心轴的左右两个子列重复上述操作</span></span><br><span class="line">        quickSort(arr,L,right-<span class="number">1</span>); <span class="comment">// 左边子列循环，还是原始数组，L为左边界，此时的right-1为中心轴的左侧一位</span></span><br><span class="line">        quickSort(arr,right+<span class="number">1</span>,R); <span class="comment">// 右边子列循环，原始数组，right+1为中心轴右侧一位，R为右边界</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>更多关于快排的算法题正在整理</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序算法</category>
+        <category>快速排序</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序算法</tag>
+        <tag>快速排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机组成原理</title>
+    <url>/2021/02/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<center>计算机组成原理
+
+<p>​    本笔记是在B站自学的计算机组成原理课程，该课程主要是为了快速弥补基础知识，具体深入了解还需其他书籍与课程。该基础课程链接：<a href="https://www.bilibili.com/video/BV1rV411k7Xf?p=1">https://www.bilibili.com/video/BV1rV411k7Xf?p=1</a></p>
+<a id="more"></a>
+
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1></center>]]></content>
+      <categories>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>计算机组成原理</tag>
       </tags>
   </entry>
   <entry>
