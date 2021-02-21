@@ -264,7 +264,7 @@
   </entry>
   <entry>
     <title>排序算法--快速排序</title>
-    <url>//%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F</url>
+    <url>//%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95--%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="排序算法–快速排序"><a href="#排序算法–快速排序" class="headerlink" title="排序算法–快速排序"></a><center>排序算法–快速排序</center></h1><p>快速排序时间复杂度平均状态下O（NlogN），空间复杂度O（1）</p>
 <a id="more"></a>
 
